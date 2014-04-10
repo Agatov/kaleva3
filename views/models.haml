@@ -1,0 +1,31 @@
+%section
+  .wrapper
+    .title
+      Модельный ряд окон Kaleva
+    .models-bar
+      %ul#models-pager
+        %li
+          %a{'data-slide-index' => 0, href: ''} Standart
+        %li
+          %a{'data-slide-index' => 1, href: ''} Vita
+        %li
+          %a{'data-slide-index' => 2, href: ''} Design
+        %li
+          %a{'data-slide-index' => 3, href: ''} Deco
+        %li
+          %a{'data-slide-index' => 4, href: ''} Titan Plus
+
+
+    .slider-block.clearfix
+      .arrow-area.left
+        .arrow.left#prev-model
+      .arrow-area.right
+        .arrow.right#next-model
+
+
+      %ul.models#models
+        = haml :'models/standart'
+        = haml :'models/vita'
+        = haml :'models/design'
+        = haml :'models/deco'
+        = haml :'models/titan'

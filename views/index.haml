@@ -1,0 +1,81 @@
+.intro
+  .topbar
+    .wrapper
+      .logo
+        %img{src: '/images/logo.png'}
+      .phone
+        8 (495) 929 71 29
+        .small
+          ежедневно с 9:00 до 19:00
+
+  .wrapper
+    .title
+      Закажите любую модель окон Калева до
+      %br
+      16 апреля и получите четыре бонуса в подарок*
+
+    .container.clearfix
+      .window
+      .vertical-icons
+        .vertical-icon.clearfix
+          %img{src: '/images/intro_first_icon.png'}
+          .icon-text
+            Энергосберегающий
+            стеклопакет
+
+        .vertical-icon.clearfix
+          %img{src: '/images/intro_second_icon.png'}
+          .icon-text
+            Москитная
+            %br
+            сетка
+
+        .vertical-icon.clearfix
+          %img{src: '/images/intro_third_icon.png'}
+          .icon-text
+            Белое
+            %br
+            уплотнение
+
+
+        .vertical-icon.clearfix.last
+          %img{src: '/images/intro_fourth_icon.png'}
+          .icon-text
+            Бесплатная
+            %br
+            доставка
+
+      .form
+        .form-subtitle
+          Оставьте ваши контактные
+          %br
+          данные прямо сейчас, чтобы
+          %br
+          принять участие в акции.
+
+        %form.short
+          %input{type: :text, name: :username, placeholder: 'Ваше имя... *'}
+          %input{type: :text, name: :phone, placeholder: 'Ваш телефон... *'}
+          .button.send-order Отправить
+
+  .intro-bottom-strip
+    * Подробности акции Вы сможете узнать у наших менеджеров по телефону 8-495-929-71-28
+
+= haml :why
+= haml :models
+= haml :form
+= haml :contacts
+
+
+.footer
+  .wrapper
+    .left
+      ООО "СМК оконные конструкции"
+      %br
+      Дилер компании Kaleva (Москва)
+      %br
+      Статус — Центральный офис продаж
+
+    .right
+      %a{href: 'http://abardacha.ru', target: '_blank'}
+        %img{src: '/images/abardacha.jpg'}
