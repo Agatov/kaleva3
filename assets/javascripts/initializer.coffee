@@ -2,13 +2,17 @@ $ ->
 
 
 
+
+
   $('#models').bxSlider({
     nextSelector: '#next-model',
     prevSelector: '#prev-model',
     nextText: "<img src='/images/right_arrow_icon_60.png'>",
     prevText: "<img src='/images/left_arrow_icon_60.png'>",
     pagerCustom: '#models-pager'
-  });
+  })
+
+
 
 
   $('#show-form').on 'click', ->
@@ -24,16 +28,17 @@ $ ->
       $('.modal-form').animate({'top': '50%'}, 200)
     )
 
+
+
+
   $('#hide-thank-you').on 'click', ->
     hide_thank_you()
 
-
-
-  $('#send-form').on 'click', ->
+  $('.send-order').on 'click', ->
 
     username = $(@).parent().find('input[name=username]')
     phone = $(@).parent().find('input[name=phone]')
-    email = $(@).parent().find('input[name=email]')
+#    email = $(@).parent().find('input[name=email]')
 
     shake_fields = []
 
@@ -52,16 +57,19 @@ $ ->
       {
         'order[username]': username.val(),
         'order[phone]': phone.val(),
-        'order[email]': email.val()
+#        'order[email]': email.val()
       }
     )
 
 
-    $('.modal-form').animate({'top': '-1000px'}, 300, ->
-      show_thank_you()
-    )
+    show_thank_you()
 
-    reach_goal 'new_order'
+
+#    $('.modal-form').animate({'top': '-1000px'}, 300, ->
+#      show_thank_you()
+#    )
+
+#    reach_goal 'new_order'
 
 
 
@@ -79,10 +87,13 @@ window.show_thank_you = ->
   $('.modal-overlay').on 'click', ->
     hide_thank_you()
 
+  $('.modal-overlay').show()
   $('.modal-thank-you').css('right', '-500px')
   $('.modal-thank-you').show()
-  $('.modal-thank-you').animate({'right': '50%'}, 500, ->
+
+  $('.modal-overlay').animate({'opacity' : '0.6'}, 200, ->
     $('input').val('')
+    $('.modal-thank-you').animate({'right': '50%'}, 500)
   )
 
 window.hide_thank_you = ->
