@@ -40,22 +40,37 @@ class Application < Sinatra::Base
     #message += "\n"
     #message += params[:order][:email]
 
+    emails = ['kalevakolomenskaya@gmail.com', 'kalevabrateevo@gmail.com']
 
+    last_email_index_str = IO.read('config/last_email.txt')
 
-    #Pony.mail ({
-    #  to: 'abardacha@gmail.com',
-    #  subject: I18n.t('email.title', locale: 'ru'),
-    #  body: message,
-    #  via: :smtp,
-    #  via_options: {
-    #    address: 'smtp.gmail.com',
-    #    port: 587,
-    #    enable_starttls_auto: true,
-    #    user_name: 'agatovs@gmail.com',
-    #    password: 'f1i4o9l2e4n9t',
-    #    authentication: :plain
-    #  }
-    #})
+    index = last_email_index_str.to_i
+
+    if index == 1
+      index = 0
+    else
+      index = 1
+    end
+
+    File.open('config/last_email.txt', 'w'){ |file| file.write index.to_s }
+
+    email = emails[index]
+
+    Pony.mail ({
+      #to: "#{email}, abardacha@gmail.com",
+      to: "abardacha@gmail.com",
+      subject: I18n.t('email.title', locale: 'ru'),
+      body: message,
+      via: :smtp,
+      via_options: {
+        address: 'smtp.gmail.com',
+        port: 587,
+        enable_starttls_auto: true,
+        user_name: 'kaleva.mailer',
+        password: 'poi91qwe',
+        authentication: :plain
+      }
+    })
 
     content_type :json
     {status: :success}.to_json

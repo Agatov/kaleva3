@@ -1,9 +1,5 @@
 $ ->
 
-
-
-
-
   $('#models').bxSlider({
     nextSelector: '#next-model',
     prevSelector: '#prev-model',
@@ -11,9 +7,6 @@ $ ->
     prevText: "<img src='/images/left_arrow_icon_60.png'>",
     pagerCustom: '#models-pager'
   })
-
-
-
 
   $('#show-form').on 'click', ->
     $('.modal-overlay').show()
@@ -27,9 +20,6 @@ $ ->
       $('.modal-form').show()
       $('.modal-form').animate({'top': '50%'}, 200)
     )
-
-
-
 
   $('#hide-thank-you').on 'click', ->
     hide_thank_you()
@@ -115,7 +105,7 @@ window.shake = (field, i) ->
     field.animate({width: '+=30'}, 100)
 
 window.reach_goal = (goal) ->
-  yaCounter24590714.reachGoal(goal)
+#  yaCounter24590714.reachGoal(goal)
 
 
 
